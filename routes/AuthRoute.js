@@ -31,7 +31,6 @@ res.send(e.message)
 
 })
 
-
 auth.post("/login",async (req,res)=>{
     const {email,password}= req.body
     try{

@@ -1,10 +1,9 @@
 const mongoose=   require('mongoose');
 
 const PostSchema= mongoose.Schema({
-    title :{type:String},
-    body :{type:String},
-    device :{type:String},
-    userID:{type:String}
+    email :{type:String},
+    name :{type:String},
+    description:{type:String},
 })
 
 

@@ -2,17 +2,12 @@ const express = require('express');
 const PostModel= require("../model/postModel")
 const post = express.Router()
 
-post.get("/",async (req,res)=>{
-       const userID = req.body.userID
-       console.log(userID)
+
+
+post.get("/",async (req,res)=>{       
        try{
 const postsData= await PostModel.find();
-if(postsData.length>0){
     res.send(postsData)
-}
-else{
-    res.send({message: 'No posts found'})
-}
        }
        catch(e){
         res.send(e.message)
@@ -20,11 +15,11 @@ else{
 })
 
 
-post.post("/update",async (req,res)=>{
-    const userID = req.body.userID
-    const {title,body,device}= req.body
+post.post("/post",async (req,res)=>{
+
+    const {email,name,description}= req.body
     try{
-const postsData= await PostModel.create({userID,title,body,device});
+const postsData= await PostModel.create({email,name,description});
 res.send({message:"posts created successfully"})
     }
     catch(e){
